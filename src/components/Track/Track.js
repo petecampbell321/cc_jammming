@@ -11,15 +11,17 @@ class Track extends Component {
     }
 
     addTrack() {
+        console.log('Add Track ID: ' + this.props.track.id + ', name: ' + this.props.track.name + '\n');
         this.props.onAdd(this.props.track);
     }
 
     removeTrack() {
+        console.log('Remove Track ID: ' + this.props.track.id + ', name: ' + this.props.track.name + '\n');
         this.props.onRemove(this.props.track);
     }
 
     renderAction() {
-        if (this.props.onRemove) {
+        if (this.props.isRemoval === true) {
             return <a className="Track-action" onClick={this.addTrack}>+</a>;
         } else {
             return <a className="Track-action" onClick={this.removeTrack}>-</a>;
