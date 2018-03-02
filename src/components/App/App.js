@@ -12,17 +12,17 @@ class App extends Component {
 
     this.state = {
       searchResults: [
-        { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
-        { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
-        { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
+        // { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
+        // { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
+        // { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
       ],
 
-      playlistName: 'Playlist1',
+      playlistName: 'New Playlist',
 
       playlistTracks: [
-        { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
-        { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
-        { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
+        // { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
+        // { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
+        // { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
       ]
     }
 
@@ -107,7 +107,7 @@ class App extends Component {
      console.log(searchTerm);
      Spotify.search(searchTerm).then(response => {
       this.setState({
-         "searchResults": response
+         searchResults: response
       });
     });
   }
@@ -117,7 +117,7 @@ class App extends Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <SearchBar onSearch={this.state.search} />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             <Playlist 
