@@ -35,49 +35,12 @@ class App extends Component {
   }
 
   addTrack(track) {
-    /* let noOfTracks = parseInt(this.state.playlistTracks[this.state.playlistTracks.length - 1].id, 10);
-
-    let newTrack = false;
-
-    for (let i = 0; i < noOfTracks; i++) {
-      if (track.id !== this.state.playlistTracks.id) {
-        newTrack = true;
-      }
-    };
-
-    if (newTrack === true) {
-      let playlistArray = this.state.playlistTracks;
-
-      playlistArray.push(track);
-
-      this.setState({
-        playlistTracks: playlistArray
-      });
-    } */
-
     let ndx = this.state.playlistTracks.findIndex(trk => trk.id === track.id);
     if (ndx < 0) { this.state.playlistTracks.push(track); }
     this.setState( { playlistTracks: this.state.playlistTracks } );
   }
 
   removeTrack(track) {
-    /* let playlistArray = this.state.playlistTracks;
-
-    function findId(element) {
-      return element.id === track.id;
-    }
-
-    const idToRemove = playlistArray.find(findId);
-
-    let indexOfRemoval = playlistArray.indexOf(idToRemove);
-    if (indexOfRemoval !== -1) {
-      playlistArray.splice(indexOfRemoval, 1)
-    }
-
-    this.setState({
-      playlistTracks: playlistArray
-    }); */
-
     this.setState( { playlistTracks: this.state.playlistTracks.filter(trk => trk.id !== track.id) });
   }
 
