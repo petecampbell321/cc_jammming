@@ -53,7 +53,45 @@ let Spotify = {
             }))
             }
         )
-    },
+	},
+	
+	savePlaylist(playlistName, trackURIs) {
+		if (!(playlistName && trackURIs)) {
+			return;
+		}
+
+		let currentAccessToken = Spotify.userAccessToken;
+		let headers = { 
+			'Authorization': 'Bearer' + userAccessToken
+		};
+		let userID = '';
+
+		return fetch('https://api.spotify.com/v1/me', { headers: headers }).then(response =>
+			response.json()
+		).then(jsonResponse => {
+			userID = jsonResponse.id;
+
+			return fetch(`/v1/users/${userID}/playlists`, {
+				'headers': headers,
+				'method': 'POST',
+				'body': JSON.stringify({ 'name': playlistName })
+			}).then(response => {
+				if (response.ok){
+					return response.json();
+				}
+				throw new Error('Request Failed');
+			},
+			networkError => { console.log(networkError.message) }
+		).then(jsonResponse => {
+			playlistID = jsonResponse.id;
+
+				return fetch(`/v1/users/${userID}/playlists/${playlistID}/tracks?uris=${trackURIs}`, {
+					'headers': headers,
+					'method': 'POST'
+				})
+			});
+		});
+	}
 
     
 }
