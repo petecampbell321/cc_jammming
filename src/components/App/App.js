@@ -12,17 +12,11 @@ class App extends Component {
 
     this.state = {
       searchResults: [
-        // { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
-        // { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
-        // { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
       ],
 
       playlistName: 'New Playlist',
 
       playlistTracks: [
-        // { id: '1', name: 'Name1', artist: 'Artist1', album: 'Album1' },
-        // { id: '2', name: 'Name2', artist: 'Artist2', album: 'Album2' },
-        // { id: '3', name: 'Name3', artist: 'Artist3', album: 'Album3' }
       ]
     }
 
