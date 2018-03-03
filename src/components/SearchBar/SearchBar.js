@@ -15,7 +15,7 @@ class SearchBar extends Component {
 	}
 
 	search() {
-		console.log('[SearchBar.search] term is ' + this.state.term + '\n');
+		// console.log('[SearchBar.search] term is ' + this.state.term + '\n');
 		this.props.onSearch(this.state.term)
 	}
 
